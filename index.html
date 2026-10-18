@@ -375,6 +375,57 @@ main{flex:1;min-width:0;padding:18px 0 80px;}
 .chsec > h3 u{font-size:11px;color:var(--tx3);text-decoration:none;background:var(--panel);
   padding:2px 8px;border-radius:5px;border:1px solid var(--line);letter-spacing:1px;}
 .chsec > h3::after{content:"";flex:1;height:1px;background:var(--line);}
+.chsec{scroll-margin-top:76px;}
+.ch-intro{margin:-4px 0 14px;color:var(--tx2);font-size:13.5px;line-height:1.75;}
+.book-pre h2,.book-end h2{font-size:16px;color:var(--accent);margin-bottom:8px;}
+.book-pre ul{margin:8px 0 8px 18px;}
+.book-pre li{margin:3px 0;}
+.book-end .src{color:var(--tx3);font-size:12px;margin-top:8px;}
+.book-toc{display:flex;flex-direction:column;gap:4px;}
+.book-toc button{
+  display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto auto;column-gap:8px;
+  text-align:left;padding:7px 8px;border-radius:8px;border:1px solid transparent;
+  background:transparent;color:var(--tx);cursor:pointer;transition:background .16s,border-color .16s,transform .16s;
+}
+.book-toc button i{grid-row:1 / span 2;align-self:center;font-style:normal;width:26px;height:26px;border-radius:50%;
+  background:var(--panel2);color:var(--tx2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
+.book-toc button span{font-size:13px;font-weight:650;line-height:1.35;}
+.book-toc button small{color:var(--tx3);font-size:11px;line-height:1.3;}
+.book-toc button:hover{background:var(--panel2);border-color:var(--line2);transform:translateX(3px);}
+.book-toc button.on{background:var(--panel);border-color:var(--accent);}
+.book-toc button.on i{background:var(--accent);color:var(--ink);}
+.marticle{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px 14px;margin-bottom:12px;transition:border-color .16s,box-shadow .16s;
+}
+.marticle:hover{border-color:var(--line2);box-shadow:var(--shadow);}
+.ma-hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.ma-hd h4{font-size:17px;color:var(--accent);font-weight:800;}
+.ma-hd .en{font-size:12px;color:var(--tx3);font-style:italic;}
+.ma-tag{margin:6px 0 10px;padding-bottom:8px;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.7;}
+.ma-row{display:grid;grid-template-columns:72px 1fr;gap:8px 12px;margin:8px 0;font-size:13.5px;line-height:1.75;}
+.ma-row > b{color:var(--accent);font-size:12px;letter-spacing:.5px;padding-top:2px;text-align:right;}
+.ma-row ul{margin:0;padding-left:18px;}
+.ma-row li{margin:3px 0;}
+.ma-row li b,.ma-row div b{color:var(--accent2);}
+.ma-pc{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ma-pro,.ma-con{padding:8px 10px;border-radius:8px;}
+.ma-pro{background:rgba(95,201,138,.08);border-left:3px solid var(--green);}
+.ma-con{background:rgba(236,106,106,.08);border-left:3px solid var(--red);}
+.ma-pro em{color:var(--green);font-style:normal;font-weight:800;}
+.ma-con em{color:var(--red);font-style:normal;font-weight:800;}
+.ma-cases{display:flex;flex-wrap:wrap;gap:6px;}
+.case{
+  border:1px solid var(--line2);background:var(--bg2);color:var(--tx2);
+  border-radius:999px;padding:3px 10px;font-size:12px;line-height:1.5;
+}
+button.case{cursor:pointer;font-family:inherit;transition:border-color .15s,color .15s,transform .15s;}
+button.case:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
+button.case.lib{color:var(--accent);}
+@media(max-width:720px){
+  .ma-row,.ma-pc{grid-template-columns:1fr;}
+  .ma-row > b{text-align:left;}
+}
 
 .intro{
   padding:16px 20px;background:var(--panel);border:1px solid var(--line);border-radius:11px;
@@ -432,6 +483,7 @@ main{flex:1;min-width:0;padding:18px 0 80px;}
         本库按 <b>BoardGameGeek 各品类榜单</b>（策略 Strategy / 主题 Thematic / 战争 War / 家庭 Family / 派对 Party / 抽象 Abstract / 儿童 Children / 定制 Customizable）
         高排名作品整理，全部规则<b>重写为中文结构化解释</b>——不是规则书直译，而是按「胜利目标 → 回合流程 → 关键规则 → 机制拆解」四层重述，让你看完就能上桌。
         每款游戏都打上<b>机制标签</b>与<b>品类标签</b>，机制命名对齐《桌游机制百科》13 章体系，左侧点击任意标签即可交叉筛选；多选默认为 <code>AND</code>（同时满足），可切换为 <code>OR</code>。
+        <b>机制词典</b>放的是《桌游机制百科》精炼版全文：运作流程、设计要点、典型案例，写了优劣的条目也会放上。点案例或本库游戏名，可以直接打开规则。
       </div>
       <div class="toolbar">
         <div class="tb-l">匹配 <b id="cnt">0</b> 款</div>
@@ -456,6 +508,7 @@ main{flex:1;min-width:0;padding:18px 0 80px;}
 <div class="mask" id="mask"><div class="modal" id="modal"></div></div>
 <button class="fab" id="fab">↑</button>
 
+<script src="mech-book.js"></script>
 <script>
 /* ===== data/mechanics.js ===== */
 /* ===========================================================
@@ -464,16 +517,16 @@ main{flex:1;min-width:0;padding:18px 0 80px;}
    =========================================================== */
 window.CHAPTERS = {
   ch1:  "CH01 游戏架构",
-  ch2:  "CH02 回合顺序与行动选择",
-  ch3:  "CH03 事件与叙事",
+  ch2:  "CH02 回合顺序与行动",
+  ch3:  "CH03 事件与叙事选择",
   ch4:  "CH04 结算机制",
   ch5:  "CH05 物理动作",
-  ch6:  "CH06 平局与速度",
-  ch7:  "CH07 结束与胜负判定",
+  ch6:  "CH06 平局决胜与速度",
+  ch7:  "CH07 结束与胜负",
   ch8:  "CH08 不确定性",
   ch9:  "CH09 经济系统",
   ch10: "CH10 工人放置与移动",
-  ch11: "CH11 区域控制与套装收集",
+  ch11: "CH11 区域控制与套装",
   ch12: "CH12 卡牌机制",
   ch13: "CH13 玩家互动与影响"
 };
@@ -6128,42 +6181,145 @@ document.addEventListener("keydown", e => {
 });
 
 /* ---------- 机制词典视图 ---------- */
-function renderMechView(){
-  let h = `<div class="intro">
-    机制命名与分章<b>严格对齐《桌游机制百科》13 章体系</b>。每条机制给出重写后的一句话解释，
-    并列出本库中使用该机制的游戏——<b>点击游戏名可直接跳转到它的规则详情</b>。
-    括号内数字为本库中使用该机制的游戏数量。
-  </div>`;
-  Object.keys(CHAPTERS).forEach(ch => {
-    const list = MECHS.filter(m => m.ch === ch && MECH_COUNT[m.id])
-      .sort((a,b)=>MECH_COUNT[b.id]-MECH_COUNT[a.id]);
-    if(!list.length) return;
-    h += `<div class="chsec"><h3>${esc(CHAPTERS[ch])}<u>${list.length} 项机制</u></h3><div class="mref-grid">`;
-    list.forEach(m => {
-      const uses = GAMES.filter(g => (g.m||[]).includes(m.id))
-        .sort((a,b)=>a.r-b.r).slice(0,8)
-        .map(g => `<b data-go="${g.id}">${esc(g.cn)}</b>`).join("、");
-      const total = MECH_COUNT[m.id];
-      h += `<div class="mcard">
-        <h4>${esc(m.cn)}</h4>
-        <div class="en">${esc(m.en)}</div>
-        <p>${esc(m.d)}</p>
-        <div class="uses">本库 ${total} 款使用：${uses}${total>8?" 等":""}</div>
-      </div>`;
+function gamesForCase(text){
+  const t = String(text || "").trim();
+  if(!t) return null;
+  const head = t.split(/[（(:：/]/)[0].trim();
+  const hits = [];
+  GAMES.forEach(g => {
+    const cn = g.cn || "", en = g.en || "";
+    if(cn && (cn === t || cn === head || (head.length >= 2 && (cn.startsWith(head) || t.includes(cn))))) hits.push(g);
+    else if(en.length > 3 && t.toLowerCase().includes(en.toLowerCase())) hits.push(g);
+  });
+  hits.sort((a,b) => (a.r || 99999) - (b.r || 99999));
+  return hits[0] || null;
+}
+function mechArticle(m){
+  const ids = m.ids || [m.id];
+  const uses = GAMES.filter(g => (g.m || []).some(id => ids.includes(id)))
+    .sort((a,b) => (a.r || 99999) - (b.r || 99999));
+  let h = `<article class="marticle" id="mech-${m.id}" data-ids="${ids.join(",")}">`;
+  h += `<header class="ma-hd"><h4>${esc(m.cn)}</h4><span class="en">${esc(m.en || "")}</span></header>`;
+  if(m.tagline) h += `<p class="ma-tag">${esc(m.tagline)}</p>`;
+  if(m.flow) h += `<div class="ma-row"><b>运作流程</b><div>${m.flow}</div></div>`;
+  if(m.points && m.points.length){
+    h += `<div class="ma-row"><b>设计要点</b><ul>${m.points.map(p => `<li>${p}</li>`).join("")}</ul></div>`;
+  }
+  if((m.pros && m.pros.length) || (m.cons && m.cons.length)){
+    h += `<div class="ma-row"><b>优劣权衡</b><div class="ma-pc">`;
+    if(m.pros && m.pros.length) h += `<div class="ma-pro"><em>优</em><ul>${m.pros.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>`;
+    if(m.cons && m.cons.length) h += `<div class="ma-con"><em>劣</em><ul>${m.cons.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>`;
+    h += `</div></div>`;
+  }
+  if(m.cases && m.cases.length){
+    h += `<div class="ma-row"><b>典型案例</b><div class="ma-cases">`;
+    m.cases.forEach(c => {
+      const g = gamesForCase(c);
+      h += g
+        ? `<button type="button" class="case" data-go="${g.id}">${esc(c)}</button>`
+        : `<span class="case">${esc(c)}</span>`;
     });
     h += `</div></div>`;
+  }
+  if(uses.length){
+    const shown = uses.slice(0, 18);
+    h += `<div class="ma-row"><b>本库 ${uses.length} 款</b><div class="ma-cases">`;
+    shown.forEach(g => { h += `<button type="button" class="case lib" data-go="${g.id}">${esc(g.cn)}</button>`; });
+    if(uses.length > shown.length){
+      h += `<button type="button" class="case" data-lib="${ids.join(",")}">其余 ${uses.length - shown.length} 款</button>`;
+    }
+    h += `</div></div>`;
+  }
+  h += `</article>`;
+  return h;
+}
+let mechSpy = null;
+function bindMechSpy(){
+  if(mechSpy) mechSpy.disconnect();
+  const secs = el.mechView.querySelectorAll("section.chsec");
+  mechSpy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+      el.side.querySelectorAll("[data-toc]").forEach(b => b.classList.toggle("on", b.dataset.toc === e.target.id));
+    });
+  }, {rootMargin:"-18% 0px -68% 0px"});
+  secs.forEach(s => mechSpy.observe(s));
+}
+function renderMechToc(){
+  const book = window.MECH_BOOK;
+  if(!book) return;
+  el.side.innerHTML = `<div class="fgroup"><h4>章节 CHAPTERS</h4><nav class="book-toc">${
+    book.chapters.map(ch => {
+      const num = String(ch.id.replace("ch","")).padStart(2,"0");
+      return `<button type="button" data-toc="${ch.id}"><i>${num}</i><span>${esc(ch.title)}</span><small>${esc(ch.en)}</small></button>`;
+    }).join("")
+  }</nav></div>`;
+  el.side.querySelectorAll("[data-toc]").forEach(b => b.onclick = () => {
+    const sec = document.getElementById(b.dataset.toc);
+    if(sec) sec.scrollIntoView({behavior:"smooth", block:"start"});
   });
+}
+function filterMechArticles(){
+  if(S.view !== "mech" || !el.mechView) return;
+  const q = (S.q || "").trim().toLowerCase();
+  el.mechView.querySelectorAll("section.chsec").forEach(sec => {
+    let n = 0;
+    sec.querySelectorAll(".marticle").forEach(a => {
+      const show = !q || a.innerText.toLowerCase().includes(q);
+      a.style.display = show ? "" : "none";
+      if(show) n++;
+    });
+    sec.style.display = n ? "" : "none";
+  });
+}
+function renderMechView(){
+  const book = window.MECH_BOOK;
+  if(!book) return;
+  const covered = new Set();
+  book.chapters.forEach(ch => ch.mechs.forEach(m => (m.ids || [m.id]).forEach(id => covered.add(id))));
+  let h = `<div class="intro book-pre"><h2>${esc(book.preface.title)}</h2><p>${esc(book.preface.lead)}</p><ul>${
+    book.preface.items.map(it => `<li><b>${esc(it.h)}</b> ${esc(it.t)}</li>`).join("")
+  }</ul><p>${esc(book.preface.use)}</p></div>`;
+  book.chapters.forEach(ch => {
+    const extras = MECHS.filter(m => m.ch === ch.id && !covered.has(m.id) && MECH_COUNT[m.id]);
+    const num = String(ch.id.replace("ch","")).padStart(2,"0");
+    h += `<section class="chsec" id="${ch.id}"><h3><span>CH${num}</span> ${esc(ch.title)}<u>${ch.mechs.length + extras.length} 项</u></h3>`;
+    h += `<p class="ch-intro">${esc(ch.intro)}</p>`;
+    ch.mechs.forEach(m => { h += mechArticle(m); });
+    extras.forEach(m => {
+      h += mechArticle({id:m.id, ids:[m.id], cn:m.cn, en:m.en, tagline:m.d});
+    });
+    h += `</section>`;
+  });
+  h += `<div class="intro book-end"><h2>${esc(book.afterword.title)}</h2>${
+    book.afterword.paras.map(p => `<p>${esc(p)}</p>`).join("")
+  }<p class="src">${esc(book.afterword.sign)}</p></div>`;
   el.mechView.innerHTML = h;
   el.mechView.querySelectorAll("[data-go]").forEach(b => b.onclick = () => {
-    curList = sortList(GAMES);
-    openModal(b.dataset.go);
+    const id = b.dataset.go;
+    const art = b.closest(".marticle");
+    const ids = ((art && art.dataset.ids) || "").split(",").filter(Boolean);
+    curList = sortList(GAMES.filter(g => !ids.length || (g.m || []).some(x => ids.includes(x))));
+    if(!curList.some(g => g.id === id)) curList = sortList(GAMES);
+    openModal(id);
   });
+  el.mechView.querySelectorAll("[data-lib]").forEach(b => b.onclick = () => {
+    const ids = b.dataset.lib.split(",").filter(Boolean);
+    S.mechs = new Set(ids);
+    S.mechMode = ids.length > 1 ? "or" : "and";
+    switchView("games");
+    render();
+  });
+  bindMechSpy();
 }
 
 /* ---------- 主渲染 ---------- */
 let qTimer = 0;
 function render(opts){
-  if(!opts || opts.side !== false) renderSide();
+  if(!opts || opts.side !== false){
+    if(S.view === "mech") renderMechToc();
+    else renderSide();
+  }
   const list = curList = sortList(filter());
   el.cnt.textContent = list.length;
   el.grid.innerHTML = list.length
@@ -6185,6 +6341,7 @@ function render(opts){
 
   el.qc.style.display = S.q ? "block" : "none";
   el.grid.className = S.list ? "list" : "";
+  filterMechArticles();
 }
 
 /* ---------- 事件绑定 ---------- */
@@ -6226,8 +6383,10 @@ function switchView(v){
   el.mechView.classList.toggle("show", !isG);
   el.vGames.classList.toggle("on", isG);
   el.vMech.classList.toggle("on", !isG);
-  el.side.classList.toggle("hide", !isG);
+  el.side.classList.remove("hide");
   el.vLayout.style.display = isG ? "" : "none";
+  if(isG) renderSide();
+  else { renderMechToc(); filterMechArticles(); }
   window.scrollTo({top:0, behavior:"smooth"});
 }
 el.vGames.onclick = () => switchView("games");
